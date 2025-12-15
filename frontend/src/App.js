@@ -37,7 +37,8 @@ function App() {
     formData.append('file', file);
 
     try {
-      const response = await fetch('http://localhost:8000/detect', {
+      const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8000';
+      const response = await fetch(`${backendUrl}/detect`, {
         method: 'POST',
         body: formData,
       });
